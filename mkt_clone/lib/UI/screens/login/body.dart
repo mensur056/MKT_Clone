@@ -10,50 +10,82 @@ class LoginBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.background,
-      child: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: context.highBorderRadius,
-            color: AppColors.white,
-          ),
-          height: MediaQuery.of(context).size.height * 0.55,
-          width: MediaQuery.of(context).size.width * 0.85,
-          child: Padding(
-            padding: context.horizontalPaddingMedium,
-            child: Column(
-              children: [
-                const TextField(),
-                const TextField(),
-                Row(
-                  children: [
-                    TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          LoginString.register,
-                          style: TextStyle(color: AppColors.orange),
-                        )),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        LoginString.forgotPassWord,
-                        style: TextStyle(color: Colors.grey),
+      child: Column(
+        children: [
+          const Spacer(),
+          Expanded(
+            flex: 5,
+            child: Padding(
+              padding: context.horizontalPaddingMedium,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: context.highBorderRadius,
+                  color: AppColors.white,
+                ),
+                child: Padding(
+                  padding: context.horizontalPaddingMedium,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const CustomTextField(),
+                      const CustomTextField(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                LoginString.register,
+                                style: TextStyle(color: AppColors.orange),
+                              )),
+                          TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              LoginString.forgotPassWord,
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                  colors: [AppColors.green, Colors.green]),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.all(12.0),
+                              child: Icon(Icons.chevron_right, size: 50),
+                            )),
+                      ),
+                    ],
+                  ),
                 ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          const RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30))))),
-                  onPressed: () {},
-                  child: const Icon(Icons.chevron_right),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+          const Spacer(
+            flex: 3,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: context.verticalPaddingLow,
+      child: const TextField(
+        decoration: InputDecoration(border: OutlineInputBorder()),
       ),
     );
   }

@@ -5,7 +5,7 @@ import 'package:mkt_clone/const/theme/color.dart';
 class AppThemes {
   static ThemeData light = ThemeData(
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.red,
       titleTextStyle: TextStyle(
         fontWeight: FontWeight.w900,
         fontSize: 24,
